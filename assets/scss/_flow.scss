@@ -373,7 +373,9 @@ flow-slider
         padding: 0;
         margin: 0;
         display: flex;
-        gap: 3rem;
+        gap: 4rem;
+        max-width: 100%;
+        box-sizing: border-box;
 
         li {
             background-color: white;
@@ -546,6 +548,27 @@ flow-slider
 /* -------------------------
 レスポンシブ
 ----------------------------*/
+@include m.sp_small {
+
+    .hilevel_content,
+    .design {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+
+        .adnavi_card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+
+            li {
+                width: 100%;
+            }
+        }
+    }
+}
 
 @include m.sp {
     .price {
@@ -578,7 +601,6 @@ flow-slider
                 .icon_item {
                     width: 100%;
 
-
                     .icon_img {
                         width: 50%;
                         padding-block: 1rem;
@@ -589,7 +611,6 @@ flow-slider
                             height: 45px;
                             margin-left: auto;
                         }
-
 
                         .step_number {
                             width: 50%;

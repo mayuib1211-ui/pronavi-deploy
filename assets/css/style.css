@@ -37,7 +37,8 @@ p {
 }
 
 .sec_title_b {
-  width: 400px;
+  max-width: 100%;
+  width: clamp(250px, 40vw, 400px);
   height: 80px;
   background: linear-gradient(to right, #023f80 0%, #4b769d 60%, #f6f4f1 100%);
   color: #fff;
@@ -48,9 +49,17 @@ p {
   padding-left: 2rem;
   margin-top: 10rem;
 }
+@media (max-width: 787px) {
+  .sec_title_b {
+    height: 60px;
+    font-size: 1.7rem;
+    margin-top: 5rem;
+  }
+}
 
 .sec_title_w {
-  width: 400px;
+  max-width: 100%;
+  width: clamp(250px, 40vw, 400px);
   height: 80px;
   background: linear-gradient(to right, #023f80 0%, #4b769d 60%, #fff 100%);
   color: #fff;
@@ -60,6 +69,13 @@ p {
   align-items: center;
   padding-left: 2rem;
   margin-top: 10rem;
+}
+@media (max-width: 787px) {
+  .sec_title_w {
+    height: 60px;
+    font-size: 1.7rem;
+    margin-top: 5rem;
+  }
 }
 
 .wrapper {
@@ -85,109 +101,101 @@ p {
 }
 
 /* --------------------------------
-サブページ無料相談申込共通
+サブページ無料相談申込 共通 CTA
 -----------------------------------*/
 .cta-counseling {
   position: relative;
-}
-.cta-counseling.margin {
   margin-top: 10rem;
+  /* PC版 */
+  /* SP版 */
+}
+.cta-counseling .cta_pc {
+  position: relative;
 }
 .cta-counseling .cta_pc .cta_img {
+  width: 100%;
   display: block;
   object-fit: cover;
 }
 .cta-counseling .cta_pc .cta_textarea {
   position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: #023f80;
+  padding: 2rem;
 }
 .cta-counseling .cta_pc .cta_textarea p {
   font-size: clamp(1.8rem, 2vw, 2.7rem);
   font-weight: bold;
-  text-align: center;
-  padding-bottom: 7rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 4rem;
 }
 .cta-counseling .cta_pc .cta_textarea .orange_button_long {
   max-width: 95%;
   background: linear-gradient(to right, #ec7733 0%, #ef8e24 60%, #f8c600 100%);
   color: white;
   text-decoration: none;
-  padding: 8px 25px;
+  padding: 8px 15px;
   border-radius: 50px;
   display: inline-block;
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
   transition: background 0.3s ease;
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(0.9rem, 2vw, 2rem);
   transition: all 0.8s ease;
-  display: block;
-  margin: 0 auto;
 }
 .cta-counseling .cta_pc .cta_textarea .orange_button_long:hover {
   background: linear-gradient(to right, #ffa500 0%, #ffe747 100%);
 }
 .cta-counseling .cta_sp {
   display: none;
-  padding: 5rem 0 4rem;
+  padding: 4rem 0 3rem;
   background-color: #f6f4f1;
 }
 .cta-counseling .cta_sp .cta_sp_inner {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 .cta-counseling .cta_sp .cta_sp_inner .cta_img_sp {
-  width: 15%;
+  width: 22%;
   border-radius: 50%;
 }
-.cta-counseling .cta_sp .cta_sp_inner .cta_textarea_sp .cta_sp_text {
-  font-size: clamp(1.8rem, 2vw, 2.8rem);
+.cta-counseling .cta_sp .cta_sp_inner .cta_textarea_sp p {
+  font-size: clamp(1.6rem, 2vw, 2.4rem);
   font-weight: bold;
+  line-height: 1.6;
   text-align: center;
-  line-height: 1.5;
 }
 .cta-counseling .cta_sp .orange_button_long {
   max-width: 95%;
   background: linear-gradient(to right, #ec7733 0%, #ef8e24 60%, #f8c600 100%);
   color: white;
   text-decoration: none;
-  padding: 8px 25px;
+  padding: 8px 15px;
   border-radius: 50px;
   display: inline-block;
   font-weight: bold;
   text-align: center;
   white-space: nowrap;
   transition: background 0.3s ease;
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(0.9rem, 2vw, 2rem);
   transition: all 0.8s ease;
+  width: 60%;
+  margin: 2rem auto 0;
+  font-size: 1.4rem;
   display: block;
-  width: 50%;
-  margin: 0 auto;
-  font-size: 1.5rem;
-  margin-top: 2rem;
 }
 .cta-counseling .cta_sp .orange_button_long:hover {
   background: linear-gradient(to right, #ffa500 0%, #ffe747 100%);
 }
 
-/* --------------------------------
-サブページ無料相談申込レスポンシブ
------------------------------------*/
-@media (max-width: 787px) {
-  /* 787px */
-  .cta-counseling .cta_pc {
-    display: none;
-  }
-  .cta-counseling .cta_sp {
-    display: block;
-  }
-}
 /* -----------------------------------
 to-topボタン
 ------------------------------------ */
@@ -227,6 +235,25 @@ to-topボタン
   border-bottom-color: #537EA3;
 }
 
+/* --------------------------------
+サブページ無料相談申込 to-top レスポンシブ（SP切替）
+-----------------------------------*/
+@media (max-width: 787px) {
+  .cta-counseling .cta_pc {
+    display: none;
+  }
+  .cta-counseling .cta_sp {
+    display: block;
+  }
+  .to_top {
+    right: 5rem;
+    bottom: 3rem;
+  }
+  .to_top.main_page {
+    right: 3rem;
+    bottom: 17rem;
+  }
+}
 #header {
   width: 100%;
   height: 70px;
@@ -387,7 +414,7 @@ main .catchcopy {
   font-weight: bold;
   font-size: 1.8rem;
   line-height: 2;
-  margin: 0 0 2rem 2rem;
+  margin: 0 0 0 2rem;
   display: inline-block;
   background-color: #fff;
   color: #023f80;
@@ -396,11 +423,68 @@ main .catchcopy {
   transition: all 0.5s;
 }
 .btn .btn_push:hover {
-  background-color: #ffa600;
-  color: #fff;
+  background-color: #dfdfdf;
   transform: scale(1.05);
 }
 
+/* -------------------------
+レスポンシブ
+---------------------------- */
+@media (max-width: 787px) {
+  #header .logo img {
+    width: 170px;
+    height: auto;
+    opacity: 1;
+    padding-left: 3rem;
+    padding-top: 0.5rem;
+    line-height: 1;
+  }
+  main .overlay_img {
+    width: 180px;
+    height: auto;
+    z-index: 10;
+    height: auto;
+    position: absolute;
+    top: 53%;
+    left: 8%;
+  }
+  main .catchcopy {
+    z-index: 10;
+    font-size: clamp(3.6rem, 9.6vw, 6rem);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    position: absolute;
+    top: 22%;
+    left: 5rem;
+  }
+  .btn {
+    width: 280px;
+    height: 90px;
+    z-index: 15;
+    position: fixed;
+    bottom: 5rem;
+    right: -6rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .btn .btn_push {
+    position: absolute;
+    left: 8rem;
+    top: 50%;
+    width: 50%;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin: 0 5rem 0 0;
+    display: inline-block;
+    background-color: #fff;
+    color: #023f80;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.5s;
+  }
+}
 #about {
   position: relative;
   width: 100%;
@@ -425,7 +509,7 @@ main .catchcopy {
   max-width: 1300px;
   padding-inline: 2%;
   margin-inline: auto;
-  margin-top: 12rem;
+  margin-top: 16rem;
   color: #fff;
   font-weight: bold;
 }
@@ -512,7 +596,7 @@ main .catchcopy {
 /* ▼ sec_title_b のバイーン防止（可動幅制限） */
 .sec_title_b {
   max-width: 100%;
-  width: clamp(200px, 40vw, 400px);
+  width: clamp(250px, 40vw, 400px);
   margin-bottom: 10rem;
 }
 
@@ -522,8 +606,11 @@ main .catchcopy {
     min-height: 0;
     /* ▼ 青い帯（斜めカット） */
   }
+  #about .about_catch .catch_left {
+    margin-top: 15rem;
+  }
   #about .about_bg {
-    height: 130vh;
+    height: 100vh;
   }
 }
 @media (max-width: 787px) {
@@ -534,23 +621,23 @@ main .catchcopy {
   #about .about_bg {
     height: 118vh;
   }
-  #about .about_catch .catch_right {
+  #about .catch_right {
     text-align: left;
   }
-  #about .about_left,
-  #about .about_right {
+  .about_left,
+  .about_right {
     width: 100%;
     flex-direction: column;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   }
-  #about .about_left img,
-  #about .about_right img {
+  .about_left img,
+  .about_right img {
     width: 100%;
     aspect-ratio: 10/4;
     object-position: center top;
     margin-bottom: 2rem;
   }
-  #about .about_right {
+  .about_right {
     flex-direction: column-reverse;
   }
 }
@@ -559,7 +646,7 @@ main .catchcopy {
     min-height: 0;
   }
   #about .about_bg {
-    height: 140vh;
+    height: 130vh;
   }
 }
 #study_env {
@@ -773,7 +860,7 @@ main .catchcopy {
     border-radius: 0px;
     aspect-ratio: 10/4;
     object-position: center top;
-    border-radius: 25px;
+    border-radius: 10px;
     object-fit: cover;
     margin-top: 3rem;
     margin-right: auto;
@@ -800,6 +887,33 @@ main .catchcopy {
     letter-spacing: 0.2rem;
     font-size: 2rem;
     color: #aaa1a1;
+  }
+}
+@media (max-width: 787px) {
+  #study_env .subtitle {
+    margin-top: 8rem;
+    font-size: 2rem;
+  }
+  #study_env .subtitle span {
+    font-size: 4rem;
+  }
+  #study_env ol.steps .env_left .env_flex .env_text .env_heading,
+  #study_env ol.steps .env_right .env_flex .env_text .env_heading {
+    font-size: 2.2rem;
+  }
+  #study_env ol.steps .env_left .env_flex .env_text .env_heading .step_number,
+  #study_env ol.steps .env_right .env_flex .env_text .env_heading .step_number {
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+  }
+  #study_env ol.steps .env_left .env_flex .env_text .env_heading .step_number::before,
+  #study_env ol.steps .env_right .env_flex .env_text .env_heading .step_number::before {
+    content: counter(step);
+  }
+  #study_env ol.steps .env_left .env_flex .env_st,
+  #study_env ol.steps .env_right .env_flex .env_st {
+    font-size: 1.9rem;
   }
 }
 #reason {
@@ -940,13 +1054,13 @@ main .catchcopy {
     padding: 0 0 0 2rem;
     align-items: center;
     line-height: 1.3;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #023f80;
     border-left: 5px solid #023f80;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   #reason .reason_flex .reason_text .reason_catch {
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: #023f80;
     margin-bottom: 2rem;
   }
@@ -966,9 +1080,10 @@ main .catchcopy {
   }
   #reason .point p {
     padding-right: 1rem;
+    font-size: 1.3rem;
   }
   #reason .commentary {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     width: 40%;
     text-align: start;
     color: #023f80;
@@ -989,7 +1104,6 @@ main .catchcopy {
     font-size: 1.3rem;
     display: block;
     margin: 15rem auto 0;
-    font-size: 2.6rem;
     text-align: center;
     width: 50%;
   }
@@ -1340,6 +1454,7 @@ hackathon
 .hackathon_top img {
   height: 650px;
   object-fit: cover;
+  object-position: 40% center;
 }
 .hackathon_top .blue_line {
   width: 100%;
@@ -1350,17 +1465,7 @@ hackathon
 .hackathon .hackathon_intro {
   padding-bottom: 80px;
 }
-.hackathon .hackathon_intro .subtitle {
-  width: 400px;
-  height: 80px;
-  background: linear-gradient(to right, #023f80 0%, #4b769d 60%, #fff 100%);
-  color: #fff;
-  font-size: 2.1rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 2rem;
-  margin-top: 10rem;
+.hackathon .hackathon_intro .sec_title_w {
   margin-bottom: 80px;
 }
 .hackathon .hackathon_intro .hackathon_heading {
@@ -1430,7 +1535,7 @@ hackathon
 }
 .hackathon .block_link_blue {
   display: block;
-  width: 520px;
+  max-width: 520px;
   padding-block: 1rem;
   margin: 0 auto;
   background: linear-gradient(to right, #023f80 30%, #4b769d 70%, #98bad9 100%);
@@ -1446,7 +1551,7 @@ hackathon
 }
 .hackathon .block_link_white {
   display: block;
-  width: 520px;
+  max-width: 520px;
   padding-block: 1rem;
   margin: 0 auto;
   background: white;
@@ -1462,6 +1567,9 @@ hackathon
 }
 
 @media (max-width: 930px) {
+  .hackathon .sec_title_w {
+    margin-top: 80px;
+  }
   .hackathon .hackathon_block .block_content {
     flex-direction: column;
     gap: 2rem;
@@ -1733,19 +1841,17 @@ voice
   padding: 0 2%;
   margin: 0 auto;
   position: absolute;
-  left: 2rem;
-  right: 2rem;
   color: #023f80;
   text-shadow: 0px 4px 4px #FFFFFF;
 }
 .voice .voice_intro .voice_title {
   top: 40%;
-  font-size: clamp(3.8rem, 4vw, 4.8rem);
+  font-size: clamp(3.3rem, 4vw, 4.8rem);
   font-weight: bold;
 }
 .voice .voice_intro .voice_text {
   top: 60%;
-  font-size: clamp(2.2rem, 2vw, 2.3rem);
+  font-size: clamp(1.9rem, 2vw, 2.3rem);
   font-weight: bold;
   line-height: 1.8em;
   padding-left: 5rem;
@@ -1983,6 +2089,7 @@ voice
   white-space: nowrap;
   transition: background 0.3s ease;
   font-size: 1.3rem;
+  display: block;
   margin: 0 auto;
 }
 .other_voice .slide_sub a:hover {
@@ -1992,9 +2099,28 @@ voice
 /* ----voiceレスポンシブ---- */
 @media (max-width: 787px) {
   /* 787px */
+  .voice .voice_intro .voice_title {
+    top: 40%;
+  }
+  .voice .voice_intro .voice_text {
+    padding-left: 2rem;
+  }
   .voice .profile_card .blue_box .profile_inner {
     flex-direction: column;
     gap: 20px;
+  }
+  .voice .profile_card .blue_box .profile_inner .profile_name {
+    font-size: 4rem;
+  }
+  .voice .profile_card .blue_box .profile_inner .profile_name span {
+    font-size: 3rem;
+  }
+  .voice .profile_card .blue_box .profile_inner .profile_term {
+    font-size: 2.5rem;
+  }
+  .voice .profile_card .blue_box .profile_inner img {
+    width: 200px;
+    height: 200px;
   }
   .voice .profile_card .profile-content {
     background-color: #f6f4f1;
@@ -2021,7 +2147,7 @@ voice
     margin-bottom: 0;
   }
   .article .article_title {
-    font-size: 2.3rem;
+    font-size: 2rem;
   }
   .article .article_question {
     width: 90%;
@@ -2139,6 +2265,9 @@ voice
 }
 
 @media (max-width: 787px) {
+  .footer .footer_list {
+    font-size: 1.2rem;
+  }
   .footer .footer_under .footer_logo {
     display: block;
     width: 130px;
@@ -2538,7 +2667,9 @@ flow-slider
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 3rem;
+  gap: 4rem;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .design .adnavi_card li {
   background-color: white;
@@ -2679,6 +2810,26 @@ flow-slider
 /* -------------------------
 レスポンシブ
 ----------------------------*/
+@media (max-width: 787px) {
+  .hilevel_content,
+  .design {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .hilevel_content .adnavi_card,
+  .design .adnavi_card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .hilevel_content .adnavi_card li,
+  .design .adnavi_card li {
+    width: 100%;
+  }
+}
 @media (max-width: 930px) {
   .price .price_flex .price_left .price_title,
   .price .price_flex .price_right .price_title {
