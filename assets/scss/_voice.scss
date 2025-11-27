@@ -33,7 +33,7 @@ voice
 
         .voice_text {
             top: 60%; // 画像内での位置
-            font-size: clamp(1.9rem, 2vw, 2.3rem);
+            font-size: clamp(1.8rem, 2vw, 2.3rem);
             font-weight: bold;
             line-height: 1.8em;
             padding-left: 5rem;
@@ -78,8 +78,8 @@ voice
             }
 
             img {
-                width: 280px;
-                height: 280px;
+                width: 260px;
+                height: 260px;
                 object-fit: cover;
                 border-radius: 50%;
                 border: 1px solid #fff;
@@ -278,14 +278,10 @@ voice
 
 /* ----voiceレスポンシブ---- */
 
-// @include m.sp {
-//     /* 930px */
-// }
-
 
 @include m.sp_small {
 
-    /* 787px */
+
     .voice {
 
         // 詳細度キープ
@@ -339,6 +335,7 @@ voice
                 .profile_list {
                     height: 100%;
                     flex-direction: column;
+                    font-size: 1.6rem;
 
                     dt,
                     dd {
@@ -367,19 +364,6 @@ voice
 
     .article {
 
-        .article_title {
-            font-size: 2rem
-        }
-
-        .article_question {
-            width: 90%;
-            font-size: 2rem
-        }
-
-        .article_answer {
-            width: 90%;
-        }
-
         .accent_img_right {
             margin: 0 auto;
         }
@@ -396,8 +380,13 @@ voice
                 width: 100%;
                 text-align: center;
                 padding-block: 1rem;
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
+
+            .message_answer {
+                font-size: 1.6rem;
+            }
+
         }
     }
 

@@ -186,6 +186,10 @@ flow-slider
             line-height: 1.6;
             color: v.$bg_color;
 
+            .sp_none {
+                display: none;
+            }
+
             p:first-of-type {
                 font-size: 1.8rem;
             }
@@ -308,12 +312,15 @@ flow-slider
     gap: 4rem;
     flex-wrap: wrap;
 
+
     .adnavi_card {
         list-style: none;
         padding: 0;
         margin: 0;
         display: flex;
         gap: 2rem;
+
+
 
         li {
             background-color: white;
@@ -333,19 +340,20 @@ flow-slider
             }
 
             .adnavi_card_title {
-                font-size: 1.2rem;
+                font-size: 2rem;
                 font-weight: bold;
                 margin-bottom: 1rem;
             }
 
             .adnavi_card_text {
-                font-size: 0.95rem;
+                font-size: 1rem;
                 line-height: 1.5;
             }
         }
     }
 }
 
+// * design
 .design {
     display: flex;
     justify-content: center;
@@ -395,14 +403,14 @@ flow-slider
             }
 
             .adnavi_card_title {
-                font-size: 1.2rem;
+                font-size: 2rem;
                 font-weight: bold;
                 margin-bottom: 1rem;
                 text-align: center;
             }
 
             .adnavi_card_text {
-                font-size: 0.95rem;
+                font-size: 1rem;
                 line-height: 1.5;
                 text-align: center;
             }
@@ -548,47 +556,123 @@ flow-slider
 /* -------------------------
 レスポンシブ
 ----------------------------*/
-@include m.sp_small {
 
-    .hilevel_content,
-    .design {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-
-        .adnavi_card {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-
-            li {
-                width: 100%;
-            }
-        }
-    }
-}
+// タブレット 768〜1023px
 
 @include m.sp {
     .price {
+        padding: 10rem 0 0 0;
+
         .price_flex {
+            flex-direction: column;
 
             .price_left,
             .price_right {
+                width: 100%;
 
                 .price_title {
                     width: 50%;
+                    font-size: 1.6rem;
+                }
+
+            }
+
+            .price_left {
+                // 詳細度キープ
+
+                .price_plan {
+                    // 詳細度キープ
+
+                    padding-block: 10px;
+                }
+
+                dl {
+                    padding-left: 3rem;
                 }
             }
+
         }
+    }
+
+    .cta-counseling {
+        margin-top: 0;
     }
 }
 
+
+
+// スマホ 〜767px
 @include m.sp_small {
 
     .curriculum {
         // 詳細度キープ
+
+
+
+        /* ------イントロトップエリア------ */
+        .bk_color {
+            padding-top: 5rem;
+
+            .sec_title_b {
+                margin-bottom: 5rem;
+            }
+
+            .intro_title {
+                padding-block: 1rem 5rem;
+                font-size: 2.3rem;
+            }
+
+            .intro_flexbox {
+                // 詳細度キープ
+
+                .intro_item {
+                    // 詳細度キープ
+
+                    .intro_img {
+                        padding-block: 2rem 2rem;
+                    }
+
+                    .intro_text {
+                        padding-bottom: 2rem;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+
+        /* ------イントロ下テキストエリア------ */
+        .text_area {
+            // 詳細度キープ
+
+            .intro_undertext {
+                font-size: 3rem;
+            }
+
+            .intro_sub_undertext {
+                // 詳細度キープ
+
+                .sp_none {
+                    display: block;
+                }
+
+                p:first-of-type {
+                    font-size: 1.5rem;
+                    padding-bottom: 2rem;
+                }
+
+                p:nth-child(2) {
+                    font-size: 1.5rem;
+
+                    span {
+                        font-size: 2.2rem;
+                    }
+                }
+
+                p:last-of-type {
+                    font-size: 2.2rem;
+                }
+            }
+        }
 
         .curriculum-steps {
             //    詳細度キープ
@@ -597,6 +681,7 @@ flow-slider
                 flex-direction: column;
                 justify-content: center;
                 height: auto;
+                width: 100%;
 
                 .icon_item {
                     width: 100%;
@@ -621,20 +706,86 @@ flow-slider
                 .c_text {
                     width: 100%;
                     padding-block: 1rem;
+                    font-size: 1.4rem;
                 }
             }
         }
     }
 
+    // アドナビコース
+
+    .hilevel_content,
+    .design {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+
+        .adnavi_card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+
+            li {
+                width: 100%;
+            }
+        }
+    }
+
+    .cta-counseling {
+        margin-top: 0;
+    }
 
     .price {
+        padding: 10rem 0 0 0;
+
+        h2 {
+            font-size: 3.8rem;
+        }
+
         .price_flex {
             flex-direction: column;
 
             .price_left,
             .price_right {
                 width: 100%;
+
+                .price_plan {
+                    font-size: 1.8rem;
+                }
+
+                dl dt,
+                dl dd,
+                li,
+                .price_plan_twice {
+                    font-size: 1.8rem;
+                }
+
+                .price_title {
+                    width: 50%;
+                    font-size: 1.6rem;
+                }
+
+                span {
+                    font-size: 2.9rem;
+                }
+
+
             }
+
+            .price_left {
+
+                .price_plan {
+                    padding-block: 10px;
+                }
+
+                dl {
+                    padding-left: 0;
+                }
+            }
+
         }
     }
+
 }
