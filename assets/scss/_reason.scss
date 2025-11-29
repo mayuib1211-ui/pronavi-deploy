@@ -11,8 +11,6 @@
     margin: 0;
   }
 
-
-
   .reason_flex {
     width: 100%;
     padding-top: 90px;
@@ -36,6 +34,10 @@
         color: v.$font_accent;
         border-left: 5px solid v.$font_accent;
         margin-bottom: 2rem;
+
+        .pc_none {
+          display: none;
+        }
       }
 
       .reason_catch {
@@ -58,6 +60,7 @@
   .point {
     width: 80%;
     margin: 0 auto;
+    padding: 1rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,27 +99,42 @@
     text-align: center;
     width: 50%;
   }
-
 }
 
 @include m.sp {
   #reason {
 
-    .point {
-      width: 90%;
+    .reason_flex {
 
-      span {
-        font-size: 2rem;
+      .reason_text {
+        // 詳細度キープ
+
+        .reason_subtitle {
+          // 詳細度キープ
+
+          .pc_none {
+            display: block;
+          }
+        }
+
+        .reason_catch {
+          text-indent: 0.5rem;
+        }
       }
+    }
+  }
+
+  .point {
+    width: 90%;
+
+    span {
+      font-size: 2rem;
     }
   }
 }
 
-
 @include m.sp_small {
-
   #reason {
-
     .reason_flex {
       padding-top: 3rem;
       margin: 10rem 0 5rem 0;
@@ -137,12 +155,17 @@
           color: v.$font_accent;
           border-left: 5px solid v.$font_accent;
           margin-bottom: 2rem;
+
+          .pc_none {
+            display: block;
+          }
         }
 
         .reason_catch {
           font-size: 1.9rem;
           color: v.$font_accent;
           margin-bottom: 2rem;
+          text-indent: 0.5rem;
         }
 
         .reason_content {
@@ -193,5 +216,4 @@
       width: 70%;
     }
   }
-
 }
