@@ -1168,6 +1168,9 @@ main .catchcopy {
     margin-bottom: 2rem;
     text-indent: 0.5rem;
   }
+  #reason .reason_flex .reason_text .reason_catch br {
+    display: none;
+  }
   #reason .reason_flex .reason_text .reason_content {
     line-height: 1.8;
     padding-left: 2rem;
@@ -1761,6 +1764,10 @@ hackathon
 }
 .hackathon .block_link_white:hover {
   transform: scale(1.1);
+}
+
+.cta-counseling.no_margin {
+  margin-top: 0;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -2741,10 +2748,6 @@ flow-slider
   z-index: 50;
   transition: 0.3s ease;
 }
-.slider-section .nav:hover {
-  background-color: #4b769d;
-  color: #fff;
-}
 .slider-section .arrow_svg {
   width: 16px;
   height: 16px;
@@ -2755,17 +2758,14 @@ flow-slider
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-.nav:hover .arrow_svg {
+.slider-section .nav:hover .arrow_svg {
   stroke: #fff;
   opacity: 1;
 }
-
-.prev {
+.slider-section .prev {
   left: 0;
 }
-
-.next {
+.slider-section .next {
   right: 0;
 }
 
@@ -2783,7 +2783,7 @@ flow-slider
   text-align: center;
 }
 .curriculum .bk_color .intro_title {
-  padding-block: 3rem 10rem;
+  padding-block: 10rem 10rem;
   font-size: 3.5rem;
   color: #023f80;
 }
@@ -2922,7 +2922,7 @@ flow-slider
 }
 
 .adnavi_subtext {
-  font-size: 2.4rem;
+  font-size: 2rem;
   line-height: 1.8;
   margin-bottom: 4rem;
   color: #F2F2F2;
@@ -2954,10 +2954,6 @@ flow-slider
   border: 2px solid transparent;
   transition: border 0.3s ease;
 }
-.hilevel_content .adnavi_card li:hover {
-  border: 1px solid #4b769d;
-  transform: none;
-}
 .hilevel_content .adnavi_card li img {
   display: block;
   margin-inline: auto;
@@ -2988,7 +2984,7 @@ flow-slider
 }
 
 .design_title {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 5rem;
   line-height: 1.6;
   color: #023f80;
@@ -2996,7 +2992,7 @@ flow-slider
 }
 
 .design_subtext {
-  font-size: 2.4rem;
+  font-size: 2rem;
   margin-bottom: 5rem;
   line-height: 1.6;
   color: #023f80;
@@ -3054,6 +3050,23 @@ flow-slider
   line-height: 1.5;
   text-align: left;
 }
+.adnavi_card li .adnavi_card_text img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 0.4rem;
+}
+.adnavi_card li .adnavi_card_text .adnavi_card_title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.adnavi_card li .adnavi_card_text .adnavi_card_text {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: left;
+}
 
 /* -------------------------
 プライス
@@ -3085,7 +3098,7 @@ flow-slider
 .price .price_flex .price_left .price_plan,
 .price .price_flex .price_right .price_plan {
   font-size: 2.3rem;
-  padding-bottom: 40px;
+  padding-bottom: 5px;
 }
 .price .price_flex .price_left .price_plan.right,
 .price .price_flex .price_right .price_plan.right {
@@ -3111,6 +3124,7 @@ flow-slider
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+  padding-left: 3rem;
 }
 .price .price_flex .price_left dl dt,
 .price .price_flex .price_left dl dd {
@@ -3268,6 +3282,15 @@ flow-slider
     font-size: 1.8rem;
     margin-bottom: 2rem;
   }
+  .adnavi .sub_title {
+    font-size: 1.5rem;
+  }
+  .adnavi .adnavi_title {
+    font-size: 2rem;
+  }
+  .adnavi .adnavi_subtext {
+    font-size: 1.5rem;
+  }
   .adnavi .hilevel_content,
   .adnavi .design {
     flex-direction: column;
@@ -3283,6 +3306,12 @@ flow-slider
   }
   .adnavi .adnavi_card li {
     width: 100%;
+  }
+  .design .design_title {
+    font-size: 2rem;
+  }
+  .design .design_subtext {
+    font-size: 1.5rem;
   }
   .adnavi_card_subtext {
     font-size: 1.5rem;
