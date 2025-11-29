@@ -380,8 +380,9 @@ to-topボタン
 
 main .slick_slider {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
+  z-index: 1;
   /*overflow: hidden;*/
 }
 main .slick_slider img {
@@ -398,6 +399,24 @@ main .overlay_img {
   position: absolute;
   top: 56%;
   left: 8%;
+}
+@media (max-width: 767px) {
+  main .overlay_img {
+    display: none;
+  }
+}
+main .overlay_img_sp {
+  display: none;
+}
+@media (max-width: 767px) {
+  main .overlay_img_sp {
+    display: block;
+    position: absolute;
+    width: 50vw;
+    top: 67vh;
+    right: 0;
+    z-index: 10;
+  }
 }
 main .catchcopy {
   z-index: 10;
@@ -512,7 +531,7 @@ main .catchcopy {
   left: 0;
   width: 100%;
   height: 140vh;
-  background-color: #023F80;
+  background-color: #023f80;
   clip-path: polygon(0 55%, 0 0, 100% 15%, 100% 70%);
   z-index: 2;
 }
@@ -629,7 +648,7 @@ main .catchcopy {
     margin-top: 15rem;
   }
   #about .about_bg {
-    height: 87vh;
+    height: 88vh;
   }
 }
 @media (max-width: 767px) {
@@ -683,7 +702,7 @@ main .catchcopy {
   #about .about_left img,
   #about .about_right img {
     width: 100%;
-    aspect-ratio: 10/4;
+    aspect-ratio: 10/5;
     object-position: center top;
     margin-bottom: 2rem;
   }
@@ -696,7 +715,7 @@ main .catchcopy {
     min-height: 0;
   }
   #about .about_bg {
-    height: 130vh;
+    height: 136vh;
   }
 }
 #study_env {
@@ -924,7 +943,7 @@ main .catchcopy {
   }
   #study_env .env_catch .env_catch_contents {
     max-width: 180px;
-    height: 130px;
+    height: 150px;
     border: 1px solid #ccc;
     border-radius: 0;
     transition: none;
@@ -995,7 +1014,7 @@ main .catchcopy {
   #study_env ol.steps .env_right .env_flex img {
     width: 90%;
     border-radius: 0px;
-    aspect-ratio: 10/4;
+    aspect-ratio: 10/6;
     object-position: center top;
     border-radius: 10px;
     object-fit: cover;
@@ -1256,6 +1275,22 @@ main .catchcopy {
 #metalife .meta_flex .meta_greenimg {
   width: 35%;
 }
+#metalife .meta_flex .meta_group_link_sp {
+  display: none;
+  padding: 5px 45px;
+  border: 3px solid #22978B;
+  background-color: rgba(255, 255, 255, 0.577);
+  border-radius: 50px;
+  font-size: clamp(1.6rem, 2vw, 2.3rem);
+  font-weight: bold;
+  color: #22978B;
+  transition: all 0.3s;
+}
+#metalife .meta_flex .meta_group_link_sp:hover {
+  border: 3px solid #22978B;
+  background-color: rgba(34, 151, 139, 0.6823529412);
+  color: white;
+}
 #metalife .no_wrapper {
   width: 100%;
   background-color: #fff;
@@ -1340,8 +1375,7 @@ main .catchcopy {
     display: block;
   }
   #metalife .meta_imgarea .meta_group_link {
-    padding-inline: 15px;
-    font-size: 1rem;
+    display: none;
   }
   #metalife .meta_flex {
     flex-direction: column;
@@ -1358,6 +1392,10 @@ main .catchcopy {
   }
   #metalife .meta_flex .meta_greenimg {
     width: 60%;
+  }
+  #metalife .meta_flex .meta_group_link_sp {
+    margin-top: 5rem;
+    display: block;
   }
   #metalife .no_wrapper .meta_wrapper {
     padding-inline: 3rem;
@@ -1458,23 +1496,37 @@ main .catchcopy {
   background: linear-gradient(to right, #ffa500 0%, #ffe747 100%);
 }
 #voice .voice_slider .slick-dots li button {
-  width: 15px;
-  /* 幅 */
-  height: 15px;
-  /* 高さ */
-  border-radius: 50%;
-  /* 丸くする */
-  background-color: #ccc;
-  /* 通常色 */
+  padding: 0;
+  background: none;
+  border: none;
+  width: auto;
+  height: auto;
 }
 #voice .voice_slider .slick-dots li button::before {
   content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ccc;
 }
-#voice .voice_slider .slick-dots li.slick-active button {
+@media (max-width: 767px) {
+  #voice .voice_slider .slick-dots li button::before {
+    width: 10px;
+    height: 10px;
+  }
+}
+#voice .voice_slider .slick-dots li.slick-active button::before {
   background-color: #023f80;
   /* 選択中の色 */
   width: 15px;
   height: 15px;
+}
+@media (max-width: 767px) {
+  #voice .voice_slider .slick-dots li.slick-active button::before {
+    width: 10px;
+    height: 10px;
+  }
 }
 #voice .graduate_work {
   display: block;
@@ -1499,23 +1551,6 @@ main .catchcopy {
   }
   #voice .voice_slider {
     min-height: 0;
-    /* 選択中のドット */
-  }
-  #voice .voice_slider .slick-dots li button {
-    width: 10px;
-    /* 幅 */
-    height: 10px;
-    /* 高さ */
-    border-radius: 50%;
-    /* 丸くする */
-    background-color: #ccc;
-    /* 通常色 */
-  }
-  #voice .voice_slider .slick-dots li.slick-active button {
-    background-color: #023f80;
-    /* 選択中の色 */
-    width: 10px;
-    height: 10px;
   }
 }
 #instagram {
@@ -1973,24 +2008,56 @@ hackathon
   transform: scale(1.1);
 }
 
+/* -------------------------
+レスポンシブ
+----------------------------*/
 @media (min-width: 768px) and (max-width: 1023px) {
-  #price .price_flex .price_left a,
-  #price .price_flex .price_right a {
-    width: 40%;
+  #price {
+    padding: 10rem 0 0 0;
   }
-  #price .price_flex .price_left .price_title,
-  #price .price_flex .price_right .price_title {
-    width: 50%;
-    font-size: 1.8rem;
-  }
-}
-@media (max-width: 767px) {
   #price .price_flex {
     flex-direction: column;
   }
   #price .price_flex .price_left,
   #price .price_flex .price_right {
     width: 100%;
+  }
+  #price .price_flex .price_left .price_title,
+  #price .price_flex .price_right .price_title {
+    width: 50%;
+    font-size: 1.6rem;
+  }
+  #price .price_flex .price_left .price_plan {
+    padding-block: 10px;
+  }
+  #price .price_flex .price_left dl {
+    padding-left: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  #price h2 {
+    font-size: 4.8rem;
+  }
+  #price .price_flex {
+    flex-direction: column;
+  }
+  #price .price_flex .price_left,
+  #price .price_flex .price_right {
+    width: 100%;
+  }
+  #price .price_flex .price_left .price_plan,
+  #price .price_flex .price_right .price_plan {
+    font-size: 2.3rem;
+  }
+  #price .price_flex .price_left dl dt,
+  #price .price_flex .price_left dl dd,
+  #price .price_flex .price_left li,
+  #price .price_flex .price_left .price_plan_twice,
+  #price .price_flex .price_right dl dt,
+  #price .price_flex .price_right dl dd,
+  #price .price_flex .price_right li,
+  #price .price_flex .price_right .price_plan_twice {
+    font-size: 1.8rem;
   }
   #price .price_flex .price_left a::before,
   #price .price_flex .price_right a::before {
@@ -2003,6 +2070,10 @@ hackathon
   #price .price_flex .price_right .price_title {
     width: 50%;
     font-size: 1.6rem;
+  }
+  #price .price_flex .price_left span,
+  #price .price_flex .price_right span {
+    font-size: 2.9rem;
   }
 }
 /* --------------------------
@@ -2804,13 +2875,10 @@ flow-slider
 }
 
 .adnavi {
-  background-color: #fff;
-  text-align: center;
-  padding: 6rem 2rem;
+  padding-block: 5rem;
 }
-.adnavi .wrapper {
-  max-width: 120rem;
-  margin: 0 auto;
+.adnavi .bg_blue {
+  background-color: #4b769d;
 }
 .adnavi .sec_title_w {
   font-size: 2.2rem;
@@ -2819,24 +2887,23 @@ flow-slider
 .adnavi .sub_title {
   font-size: 2rem;
   line-height: 1.6;
-  margin-bottom: 5rem;
+  margin-block: 10rem;
 }
 .adnavi .highlevel {
   width: 100%;
-  background-color: #607CA8;
-  padding: 50px 20px;
+  padding-block: 10rem;
   text-align: center;
 }
 
 .adnavi_title {
   font-size: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   color: #F2F2F2;
 }
 
 .adnavi_subtext {
-  font-size: 2rem;
-  line-height: 2;
+  font-size: 2.4rem;
+  line-height: 1.8;
   margin-bottom: 4rem;
   color: #F2F2F2;
 }
@@ -2865,7 +2932,9 @@ flow-slider
   box-shadow: 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
 }
 .hilevel_content .adnavi_card li img {
-  width: 100%;
+  display: block;
+  margin-inline: auto;
+  width: 90%;
   height: auto;
   margin-bottom: 1.5rem;
   border-radius: 0.4rem;
@@ -2873,10 +2942,10 @@ flow-slider
 .hilevel_content .adnavi_card li .adnavi_card_title {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .hilevel_content .adnavi_card li .adnavi_card_text {
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.5;
 }
 
@@ -2884,22 +2953,32 @@ flow-slider
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-block: 10rem;
   gap: 4rem;
   flex-wrap: wrap;
+  background-color: #f6f4f1;
 }
-.design .adnavi_title {
-  font-size: 3rem;
-  margin: 3rem 2rem;
+
+.design_title, .design_subtext {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  line-height: 1.6;
   color: #023f80;
 }
-.design .adnavi_subtext {
+
+.adnavi_card_title {
+  font-size: 4rem;
+  margin-bottom: 5rem;
+}
+
+.adnavi_card_text {
   font-size: 2rem;
   line-height: 2;
   margin-bottom: 4rem;
-  color: #023f80;
   text-align: center;
 }
-.design .adnavi_card {
+
+.adnavi_card {
   justify-content: center;
   list-style: none;
   padding: 0;
@@ -2909,7 +2988,7 @@ flow-slider
   max-width: 100%;
   box-sizing: border-box;
 }
-.design .adnavi_card li {
+.adnavi_card li {
   background-color: white;
   color: #023f80;
   padding: 2rem;
@@ -2918,23 +2997,28 @@ flow-slider
   box-sizing: border-box;
   text-align: left;
   box-shadow: 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.design .adnavi_card li img {
+.adnavi_card li:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+.adnavi_card li:hover img {
   width: 100%;
   height: auto;
   margin-bottom: 1.5rem;
   border-radius: 0.4rem;
 }
-.design .adnavi_card li .adnavi_card_title {
+.adnavi_card li:hover .adnavi_card_title {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
-.design .adnavi_card li .adnavi_card_text {
-  font-size: 1rem;
+.adnavi_card li:hover .adnavi_card_text {
+  font-size: 1.5rem;
   line-height: 1.5;
-  text-align: center;
+  text-align: left;
 }
 
 /* -------------------------
@@ -3142,6 +3226,7 @@ flow-slider
     padding-block: 1rem;
     font-size: 1.4rem;
   }
+  /* -------アドナビコース------ */
   .hilevel_content,
   .design {
     flex-direction: column;
@@ -3160,14 +3245,16 @@ flow-slider
   .design .adnavi_card li {
     width: 100%;
   }
+  /* -------相談申込帯------ */
   .cta-counseling {
     margin-top: 0;
   }
+  /* -------プライス------ */
   .price {
     padding: 10rem 0 0 0;
   }
   .price h2 {
-    font-size: 3.8rem;
+    font-size: 4.8rem;
   }
   .price .price_flex {
     flex-direction: column;
@@ -3178,7 +3265,7 @@ flow-slider
   }
   .price .price_flex .price_left .price_plan,
   .price .price_flex .price_right .price_plan {
-    font-size: 1.8rem;
+    font-size: 2.3rem;
   }
   .price .price_flex .price_left dl dt,
   .price .price_flex .price_left dl dd,
